@@ -1,7 +1,4 @@
---if SERVER then
-  --resource.AddFile( "" )
- -- return 
---end
+-- SimpleHUD 
 
 if CLIENT then
 
@@ -49,12 +46,6 @@ draw.RoundedBox(5,55,981,250,17,Color(79,79,79,240))
 draw.RoundedBox(5,55,960,h*2.5,17,Color(255,0,0,255))
 draw.RoundedBox(5,55,981,a*2.5,17,Color(0,0,255))
 
-
---[[draw.RoundedBox(0,55,960,250,17,Color(79,79,79,240))
-draw.RoundedBox(0,55,981,250,17,Color(79,79,79,240))
-draw.RoundedBox(0,55,960,h*2.5,17,Color(255,0,0,255))
-draw.RoundedBox(0,55,981,a*2.5,17,Color(0,0,255))]]
-
 -- Avatar or the picture is in the hud
 local Avatar = vgui.Create( "AvatarImage", gmpanel )
 Avatar:SetSize( 55, 55 )
@@ -71,20 +62,12 @@ function GAMEMODE:DrawDeathNotice()
   return false
 end
 
--- Nick above the player
-
-
 -- Part of hud
 hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
-    surface.SetMaterial( Material( "materials/hud.png" ) )
+  surface.SetMaterial( Material( "materials/hud.png" ) )
   surface.SetDrawColor( 255, 255, 255, 255 )
   surface.DrawTexturedRect( 30, ScrH() - 180, 300, 115 )
-
- 
-
-end )
-
-
-end)
+    end)
+  end)
 end
 
