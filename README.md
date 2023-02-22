@@ -1,7 +1,8 @@
 # EasyHudGmod
 #### Simple HUD FOR GMOD
 
-This is a simple hud for the game garrys mod
+This is a simple hud for the game garrys mod.
+LUA test
 
  ### Lang: Lua
 
