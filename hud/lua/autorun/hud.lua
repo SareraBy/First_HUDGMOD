@@ -71,3 +71,36 @@ hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
   end)
 end
 
+
+
+-- create a label for the current ammo
+local currentAmmoLabel = vgui.Create("DLabel", gmpanel)
+currentAmmoLabel:SetPos(10, 10)
+currentAmmoLabel:SetText("Current Ammo: ")
+currentAmmoLabel:SetFont("DermaDefaultBold")
+
+
+-- create a label for the total ammo
+local totalAmmoLabel = vgui.Create("DLabel", gmpanel)
+totalAmmoLabel:SetPos(10, 30)
+totalAmmoLabel:SetText("Total Ammo: ")
+totalAmmoLabel:SetFont("DermaDefaultBold")
+
+
+-- add a hook to update the ammo labels
+hook.Add("HUDPaint", "AmmoHUD", function()
+  -- get the player's active weapon
+  local weapon = LocalPlayer():GetActiveWeapon()
+  
+  if IsValid(weapon) then
+    -- get the current ammo and total ammo for the weapon
+    local currentAmmo = weapon:Clip1()
+    local totalAmmo = LocalPlayer():GetAmmoCount(weapon:GetPrimaryAmmoType())
+    
+    -- update the labels with the ammo values
+    currentAmmoLabel:SetText("CAm: " .. currentAmmo)
+    totalAmmoLabel:SetText("TAm: " .. totalAmmo)
+  end
+end)
+
+
